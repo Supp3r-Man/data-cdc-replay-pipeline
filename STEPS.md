@@ -15,7 +15,7 @@
 7. **Wrote the baselines** deliberately fair: an upsert/delete in arrival order (a test checks it is correct on a clean stream), and a second one with a `(key, lsn)` seen-set.
 8. **Wrote the simulation and demo**, then the tests: 44, including 5 seeded property-style tests against the trivial reference.
 9. **Mutation-checked 8 behaviours** on fresh copies (script reports PATTERN MISSED if a replace does not apply). All 8 killed on the first run.
-10. **Wrote README and this file**, committed locally. Not pushed; CI has not run.
+10. **Wrote README and this file**, committed locally. Pushed to both accounts; CI passed on Python 3.11 and 3.13.
 
 Problems and choices along the way:
 - First run of the demo: the baseline looked weak (1-5% divergence). I did not tune it to look worse. Divergence turns out to depend on rewrites per key, so I added a contention table (39% at 150 events per key).
